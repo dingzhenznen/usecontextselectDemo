@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NormalContextDemo from './components/NormalContextDemo'
 import SelectorDemo from './components/SelectorDemo'
 import CompareDemo from './components/CompareDemo'
+import FormDemo from './components/FormDemo'
 
 function App() {
   const [activeTab, setActiveTab] = useState('compare')
@@ -93,12 +94,22 @@ function App() {
         >
           use-context-selector (解决)
         </button>
+        <button
+          style={{
+            ...styles.tab,
+            ...(activeTab === 'form' ? styles.activeTab : {}),
+          }}
+          onClick={() => setActiveTab('form')}
+        >
+          Form 表单示例
+        </button>
       </div>
 
       <div style={styles.content}>
         {activeTab === 'compare' && <CompareDemo />}
         {activeTab === 'normal' && <NormalContextDemo />}
         {activeTab === 'selector' && <SelectorDemo />}
+        {activeTab === 'form' && <FormDemo />}
       </div>
     </div>
   )
